@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.3.2.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="https://code.jquery.com/qunit/qunit-2.3.2.js"></script>
+<script>
+
+    function validator(x) {
+        if(typeof x === 'boolean'){
+            return false;
+        }
+        if(typeof x === 'number'){
+            return false;
+        }
+        if(typeof x === 'string'){
+            return true;
+        }
+    }
+    
+    function toString(x) {
+        let result = validator(x);
+
+        if(result === true) {
+            return('Hello,' + x);
+        }else {
+            return false;
+        }
+    }
+
+    function calculator(x, y, f) {
+        return x + y + f;
+    }
+
+    function createString(x, y, f) {
+        return String(x + '' + y + '' + f);
+    }
+
+    function sumInString(x, y, f) {
+        return String(x + y + '' + f);
+    }
+
+    function findMax(arr) {
+        let res = Math.max.apply(null, arr);
+        return res;
+    }
+
+    function findMin(arr) {
+        let res = Math.min.apply(null, arr);
+        return arr.indexOf(res);
+    }
+
+    function copyArr(arr) {
+        let copy = arr.slice();
+        return copy;
+    }
+
+    function findMaxArgument(x, y, f) {
+        let arr = [x,y,f];
+        let res = Math.max.apply(null, arr);
+        return res;
+    }
+
+    function bond(x, y) {
+        if (validator(x) && validator(y)) {
+            return x + ' ' + y + '!';
+        }else {
+            return false;
+        }
+    }
+
+    function calculationArguments(x, y) {
+        if (typeof x === 'string') {
+            str = x.replace(/\D/g, '');
+        }
+        if (typeof y === 'boolean') {
+            if (y === true){
+                ++str;
+            }
+            else {
+                --str;
+            }
+        }
+        return str;
+    }
+
+</script>
+<script src="test.js"></script>
+</body>
+</html>
